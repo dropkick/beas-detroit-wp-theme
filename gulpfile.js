@@ -56,7 +56,7 @@ function sassLint() {
   return src(['static/scss/*.scss', 'static/scss/**/*.scss'])
     .pipe(cache('sasslint'))
     .pipe(sasslint({
-      configFile: '.sass-lint.yml'
+      configFile: 'sass-lint.yml'
     }))
     .pipe(sasslint.format())
     // .pipe(sasslint.failOnError());

@@ -1,0 +1,144 @@
+.site-footer {
+	margin: 0 auto;
+	max-width: $max-width;
+	padding: 0;
+
+	.global-footer {
+		align-items: end;
+		display: grid;
+		gap: 0;
+		grid-template-columns: 1fr;
+		justify-items: stretch;
+		margin: 0 2rem;
+
+		@media #{$mq-900-up} {
+			grid-template-columns: 0.5fr 1.5fr 0.75fr;
+			margin: 0 4.375rem;
+		}
+
+		.logo {
+			display: none;
+
+			@media #{$mq-900-up} {
+				display: inline-block;
+			}
+
+			img {
+				width: 80%;
+			}
+		}
+
+		.info {
+			@include font-size(18px);
+			// line-height: 2;
+			line-height: 1.5;
+			margin-top: 2rem;
+
+			@media #{$mq-900-up} {
+				margin-top: 0;
+			}
+
+			address {
+				font-style: normal;
+			}
+
+			a {
+				color: $color-cream;
+				display: block;
+				// line-height: 1.2;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.socmed {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		list-style-image: none;
+		margin: 0;
+		padding: 2rem 0 0;
+
+		@media #{$mq-900-up} {
+			justify-content: start;
+			margin-bottom: -0.5rem;
+			padding: 1rem 0 0;
+		}
+
+		a {
+			border-radius: 50%;
+			display: block;
+			height: 20px;
+			margin: 0 1rem;
+			// padding: 30px;
+			padding: 25px;
+			transition: background-color $trans-duration ease;
+			width: 20px;
+
+			@media #{$mq-900-up} {
+				margin: 0 1rem 0 0;
+			}
+		}
+
+		.fb a {
+			background: $color-cream url('../img/icon-fb.svg') 50% 50% no-repeat;
+			background-size: 20px 20px;
+			color: transparent;
+			font-size: 1px;
+
+			&:hover {
+				background-color: $color-socmed-fb;
+			}
+		}
+
+		.ig a {
+			background: $color-cream url('../img/icon-ig.svg') 50% 50% no-repeat;
+			background-size: 20px 20px;
+			color: transparent;
+			font-size: 1px;
+
+			&:hover {
+				background-color: $color-socmed-ig;
+			}
+		}
+
+		.tw a {
+			background: $color-cream url('../img/icon-tw.svg') 50% 50% no-repeat;
+			background-size: 20px 20px;
+			color: transparent;
+			font-size: 1px;
+
+			&:hover {
+				background-color: $color-socmed-tw;
+			}
+		}
+	}
+
+	.legal {
+		@include font-size(18px);
+		align-items: end;
+		color: $color-cream;
+		display: grid;
+		gap: 0;
+		grid-template-columns: 1fr;
+		line-height: 2;
+		margin: 2rem;
+		padding: 2rem 0;
+
+		@media #{$mq-900-up} {
+			grid-template-columns: 2fr 0.75fr;
+			margin: 2rem 4.375rem;
+		}
+
+		a {
+			color: $color-cream;
+			display: block;
+			// line-height: 1.2;
+			text-decoration: none;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}

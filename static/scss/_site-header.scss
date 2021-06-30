@@ -1,34 +1,46 @@
 .site-header {
 	align-items: center;
-	background: $base-page-background;
+	background: $color-blue-light;
 	// background: rgba($base-page-background, 0.9);
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
 	left: 0;
 	margin: 0 auto;
-	max-width: $max-width;
 	padding: 0 1rem;
 	position: fixed;
 	right: 0;
 	top: 0;
 	z-index: 5000;
-
+	
 	@media #{$mq-900-up} {
-		background: $base-page-background;
-		display: grid;
-		gap: 2rem;
-		grid-template-columns: 1fr 2.4fr 7fr;
-		// flex-direction: row;
-		left: auto;
-		padding: 1.5rem 3.25%;
+		background: $color-blue-light;
+		// display: grid;
+		justify-content: center;
+		padding: 0;
 		position: relative;
-		right: auto;
-		top: auto;
 	}
 
+	.inner {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin: 0 auto;
+		max-width: $max-width;
+		
+		@media #{$mq-900-up} {
+			align-items: center;
+			display: grid;
+			gap: 2rem;
+			grid-template-columns: 1fr 2.4fr 7fr;
+			left: auto;
+			padding: 0.5rem 3.25% 0;
+			position: relative;
+			right: auto;
+			top: auto;
+		}
+	}
+
+
 	@media #{$mq-1180-up} {
-		padding: 1.5rem 3.25%;
+		// padding: 1.5rem 3.25%;
 	}
 
 	.logo {
@@ -36,7 +48,7 @@
 		background-size: contain;
 		display: block;
 		height: 35px;
-		margin: 0.5rem 1rem 0.25rem 80px;
+		margin: 1rem 1rem 0.25rem 30px;
 		position: relative;
 		width: 70px;
 		z-index: 6000;
@@ -135,7 +147,7 @@
 		}
 
 		a {
-			background-color: transparent;
+			// background-color: transparent;
 			color: $color-blue-dark;
 			display: block;
 			line-height: 1;
@@ -144,7 +156,7 @@
 			transition: color $trans-duration ease;
 
 			@media #{$mq-900-up} {
-				background-color: $base-page-background;
+				// background-color: $base-page-background;
 				padding: 0.25em 0.75em;
 			}
 

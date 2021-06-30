@@ -8,14 +8,16 @@
 
 	<body class="{{body_class}}" data-template="base.twig">
 		<header class="site-header">
-			{% block header %}
-	        <button aria-label="Menu" class="page-header-menu-button"><span class="burger"><span class="burger-top"></span> <span class="burger-middle"></span> <span class="burger-bottom"></span></span></button>
-			<a href="{{site.url}}" class="logo" rel="home"><span>{{site.name}}</span></a>
-			<p class="tagline">The Place to Bea</p>
-				<nav class="primary">
-					{% include "menu.twig" with {'items': main_menu.get_items} %}
-				</nav>
-			{% endblock %}
+			<div class="inner">
+				{% block header %}
+				<button aria-label="Menu" class="page-header-menu-button"><span class="burger"><span class="burger-top"></span> <span class="burger-middle"></span> <span class="burger-bottom"></span></span></button>
+				<a href="{{site.url}}" class="logo" rel="home"><span>{{site.name}}</span></a>
+				<p class="tagline">The Place to Bea</p>
+					<nav class="primary">
+						{% include "menu.twig" with {'items': main_menu.get_items} %}
+					</nav>
+				{% endblock %}
+			</div>
 		</header>
 
 		<section id="content" role="main" class="content-wrapper">

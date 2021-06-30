@@ -1,7 +1,7 @@
 html {
 	box-sizing: border-box;
 	font-size: 100%;
-	
+
 	@media #{$mq-900-up} {
 		min-height: 100%;
 		position: relative;
@@ -32,6 +32,7 @@ a {
 }
 
 .content-wrapper {
+	background-color: $color-cream;
 	margin: 0 auto;
 	max-width: $max-width;
 	padding: 0;
@@ -51,4 +52,8 @@ video {
 
 .wp-video {
 	width: 100% !important;
+}
+
+.article-h1 {
+	margin: 0;
 }

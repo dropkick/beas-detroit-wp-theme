@@ -1,0 +1,36 @@
+{
+    "name": "beas-detroit-wp-theme",
+    "description": "Gulp 4 develpoment for Timber-based WP theme",
+    "version": "1",
+    "main": "gulpfile.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dropkick/beas-detroit-wp-theme"
+    },
+    "keywords": [
+        "gulp",
+        "boilerplate",
+        "html",
+        "css",
+        "javascript",
+        "browser-sync"
+    ],
+    "author": "@dropkick",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dropkick/beas-detroit-wp-theme/issues"
+    },
+    "devDependencies": {
+        "beeper": "^2.1.0",
+        "browser-sync": "^2.26.14",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^6.0.0",
+        "gulp-cached": "^1.1.1",
+        "gulp-dart-sass": "^1.0.2",
+        "gulp-notify": "^3.2.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-sass-lint": "^1.4.0",
+        "gulp-shell": "^0.6.5",
+        "gulp-sourcemaps": "^2.6.4"
+    }
+}

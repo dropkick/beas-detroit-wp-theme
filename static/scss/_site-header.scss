@@ -1,10 +1,10 @@
 .site-header {
 	align-items: center;
-	// background: $base-page-background;
-	background: rgba($base-page-background, 0.9);
+	background: $base-page-background;
+	// background: rgba($base-page-background, 0.9);
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-start;
 	left: 0;
 	margin: 0 auto;
 	max-width: $max-width;
@@ -16,38 +16,41 @@
 
 	@media #{$mq-900-up} {
 		background: $base-page-background;
-		flex-direction: row;
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: 1fr 2.4fr 7fr;
+		// flex-direction: row;
 		left: auto;
-		padding: 1.5rem 7.5%;
+		padding: 1.5rem 3.25%;
 		position: relative;
 		right: auto;
 		top: auto;
 	}
 
 	@media #{$mq-1180-up} {
-		padding: 1.5rem 5%;
+		padding: 1.5rem 3.25%;
 	}
 
 	.logo {
 		background: url('../img/beas-logo-dk.svg') no-repeat;
 		background-size: contain;
 		display: block;
-		height: 45px;
-		margin: 0.25rem auto;
+		height: 35px;
+		margin: 0.5rem 0.5rem 0.25rem 80px;
 		position: relative;
-		width: 90px;
+		width: 70px;
 		z-index: 6000;
 
 		@media #{$mq-900-up} {
-			height: 72px;
+			height: 4vw;
 			margin: 0;
-			width: 144px;
+			width: 8vw;
 			z-index: auto;
 		}
 
-		@media #{$mq-1180-up} {
-			height: 72px;
-			width: 144px;
+		@media #{$mq-1400-up} {
+			height: 65px;
+			width: 130px;
 		}
 
 		span {
@@ -58,8 +61,26 @@
 		}
 	}
 
+	.tagline {
+		@extend %font-acme;
+		@include font-size(21px);
+		@include letter-spacing(60);
+		margin: 0;
+		text-transform: uppercase;
+
+		@media #{$mq-900-up} {
+			font-size: 2.25vw;
+		}
+
+		@media #{$mq-1400-up} {
+			@include font-size(36px);
+		}
+	}
+
 	.primary {
+		@extend %font-eaves-bold;
 		@include font-size(30px);
+		@include letter-spacing(10);
 		bottom: 0;
 		left: 0;
 		opacity: 0;
@@ -67,6 +88,7 @@
 		padding: 5rem 1rem 0 2rem;
 		position: fixed;
 		right: 0;
+		text-transform: uppercase;
 		top: 0;
 		transform: translateX(-100%);
 		transition: all 0.3s ease-in-out;
@@ -81,14 +103,19 @@
 			overflow-y: visible;
 			padding: 0;
 			position: relative;
-			right: auto;
+			right: 0;
+			justify-self: end;
 			top: auto;
 			transform: none;
 			transition: none;
 		}
 
-		@media #{$mq-1180-up} {
-			@include font-size(21px);
+		@media #{$mq-900-up} {
+			font-size: 1.3vw;
+		}
+		
+		@media #{$mq-1400-up} {
+			@include font-size(20px);
 		}
 
 		ul {
@@ -117,76 +144,23 @@
 
 			@media #{$mq-900-up} {
 				background-color: $base-page-background;
-				padding: 0.5em;
+				padding: 0.25em 0.75em;
 			}
 
 			@media #{$mq-1180-up} {
-				padding: 0.5em 1em;
+				padding: 0.25em 0.75em;
 			}
 		}
 
 		a:hover,
 		a:active {
-			// color: $color-copper-solid;
+			color: $color-blue-med;
 		}
 
 		.current-menu-item > a,
 		.current-page-parent > a {
 			// @extend %font-avenir-demi-condensed;
 			// color: $color-copper-solid;
-		}
-
-		ul ul {
-			// display: block;
-			font-size: 0.7em;
-
-			@media #{$mq-900-up} {
-				box-shadow: 0 10px 10px 0 rgba($color-blue-dark, 0.6);
-				display: none;
-				font-size: 1em;
-				position: absolute;
-				top: 2em;
-				z-index: 6000;
-			}
-
-			a {
-				text-decoration: none;
-				@media #{$mq-900-up} {
-					border-bottom: 0.0952em solid $color-blue-dark;
-					padding: 0.75em 0;
-				}
-			}
-		}
-
-		ul li:hover > ul {
-			@media #{$mq-900-up} {
-				display: inherit;
-			}
-		}
-
-		ul ul li {
-			display: list-item;
-			float: none;
-			padding: 0 1em;
-			position: relative;
-			width: 10em;
-
-			&:last-child a {
-				border-bottom: 0;
-			}
-
-			@media #{$mq-900-up} {
-				background-color: $base-page-background;
-			}
-		}
-	}
-
-	&.active {
-		.primary {
-			background-color: $color-blue-dark;
-			display: block;
-			opacity: 1;
-			transform: translateX(0);
 		}
 	}
 

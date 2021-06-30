@@ -4,12 +4,16 @@
             </a>
             <div class="info-location">
                 <address>1533 Winder Street <br>Eastern Market <br>Detroit, Michigan 48207</address>
-                <a href="mailto:info@keepersheartwhiskey.com" class="email">info@keepersheartwhiskey.com</a>
             </div>
             <div class="info-contact">
                 <a href="mailto:hello@beasdetroit.com" class="email">hello@beasdetroit.com</a> <br>
                 <a fref="tel:3139190590" class="phone">(313) 919-0590</a> <br>
                 @beasdetroit
+            </div>
+            <div class="subscribe">
+{% filter shortcodes %}
+[contact-form-7 id="34" title="Email Ask"]
+{% endfilter %}
             </div>
             <div class="socmed">
                 {% include "menu-socmed.twig" with {'items': socmed_menu.get_items} %}

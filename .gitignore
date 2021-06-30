@@ -2,3 +2,5 @@ vendor
 wp-content
 composer.lock
 npm-shrinkwrap.json
+
+static/css/

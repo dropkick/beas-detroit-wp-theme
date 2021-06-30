@@ -1,19 +1,29 @@
 .site-footer {
+	background-color: $color-blue-med;
 	margin: 0 auto;
-	max-width: $max-width;
 	padding: 0;
 
+	@media #{$mq-900-up} {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+	}
+
 	.global-footer {
-		align-items: end;
+		align-items: start;
 		display: grid;
 		gap: 0;
 		grid-template-columns: 1fr;
 		justify-items: stretch;
-		margin: 0 2rem;
-
+		margin: 0 auto;
+		padding: 3rem 1rem;
+		max-width: $max-width;
+	
 		@media #{$mq-900-up} {
-			grid-template-columns: 0.5fr 1.5fr 0.75fr;
-			margin: 0 4.375rem;
+			grid-template-columns: 1fr 1fr 1fr 1.5fr 0.5fr;
+			// margin: 0 4.375rem;
+			padding: 3rem 3.35% 0;
 		}
 
 		.logo {
@@ -24,18 +34,23 @@
 			}
 
 			img {
+				max-width: 210px;
 				width: 80%;
 			}
 		}
 
-		.info {
+		.info-location,
+		.info-contact,
+		.subscribe {
 			@include font-size(18px);
+			color: $color-cream;
 			// line-height: 2;
-			line-height: 1.5;
+			line-height: 1.2;
 			margin-top: 2rem;
+			text-align: center;
 
 			@media #{$mq-900-up} {
-				margin-top: 0;
+				// margin-top: 1rem;
 			}
 
 			address {
@@ -44,25 +59,101 @@
 
 			a {
 				color: $color-cream;
-				display: block;
+				display: inline-block;
 				// line-height: 1.2;
 				text-decoration: none;
 			}
 		}
+
+		.subscribe {
+			text-align: left;;			
+		}
+	}
+
+	.wpcf7 form .wpcf7-response-output, 
+	.wpcf7 form.unaccepted .wpcf7-response-output {
+		@extend %font-eaves-bold;
+		border: 0;
+		padding: 0;
+		margin: 0.5em 0 0;
+	}
+
+	.wpcf7-not-valid-tip {
+		@extend %font-eaves-bold;
+		@include font-size(11px);
+		grid-column-start: 0;
+		grid-column-end: 1;
+		line-height: 2;
+		padding-left: 1rem;
+		text-transform: uppercase;
+	}
+	
+	.wpcf7-form h4 {
+		@extend %font-eaves-bold;
+		@include font-size(20px);
+		@include letter-spacing(100);
+		color: $color-cream;	
+		text-transform: uppercase;
+		margin: 0;
+		padding: 0 0 0.5em;
+	}
+
+	.wpcf7-form p {
+		display: grid;
+		position: relative;
+		gap: 1em;
+		grid-template-columns: 2fr 1fr;
+		margin: 0;
+		width: 100%;
+	}
+	
+	.wpcf7-text,
+	.wpcf7-email {
+		@extend %font-eaves;
+		@include font-size(18px);
+		background-color: $color-cream;	
+		border: 0;
+		border-radius: 0;
+		color: $color-blue-dark;
+		line-height: 1;
+		height: 2.6875rem;
+		padding: 0.5rem 1rem;
+		width: 100%;
+	}	
+
+	.wpcf7-form .ajax-loader {
+		display: none;
+		visibility: hidden;
+	}
+
+	.wpcf7-submit {
+		@extend %font-eaves-bold;
+		@include font-size(18px);
+		@include letter-spacing(100);
+		background-color: $color-cream;	
+		border: 0;
+		border-radius: 1.5em;
+		color: $color-blue-dark;
+		cursor: pointer;
+		display: block;
+		height: 2.6875rem;
+		line-height: 1;
+		padding: 0.5rem 2rem;
+		text-transform: uppercase;
 	}
 
 	.socmed {
+		align-content: flex-end;
 		display: flex;
-		justify-content: center;
+		justify-content: end;
 		list-style: none;
 		list-style-image: none;
 		margin: 0;
-		padding: 2rem 0 0;
+		padding: 0;
 
 		@media #{$mq-900-up} {
-			justify-content: start;
-			margin-bottom: -0.5rem;
-			padding: 1rem 0 0;
+			align-self: end;
+			justify-content: end;
 		}
 
 		a {
@@ -72,12 +163,12 @@
 			height: 20px;
 			margin: 0 1rem;
 			// padding: 30px;
-			padding: 24px;
+			padding: 22px;
 			transition: background-color $trans-duration ease;
 			width: 20px;
 
 			@media #{$mq-900-up} {
-				margin: 0 1rem 0 0;
+				margin: 0 0 0 0.5rem;
 			}
 		}
 
@@ -115,19 +206,17 @@
 	}
 
 	.legal {
-		@include font-size(18px);
+		@include font-size(16px);
 		align-items: end;
 		color: $color-cream;
-		display: grid;
 		gap: 0;
 		grid-template-columns: 1fr;
 		line-height: 2;
-		margin: 2rem;
-		padding: 2rem 0;
+		padding: 2rem 1rem;
+		text-align: center;
 
 		@media #{$mq-900-up} {
-			grid-template-columns: 2fr 0.75fr;
-			margin: 2rem 4.375rem;
+			margin: 0 auto;
 		}
 
 		a {
@@ -138,7 +227,7 @@
 		}
 
 		p {
-			margin: 0;
+			margin: 0 auto;
 		}
 	}
 }

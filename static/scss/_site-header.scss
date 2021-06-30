@@ -8,7 +8,7 @@
 	left: 0;
 	margin: 0 auto;
 	max-width: $max-width;
-	padding: 0.5rem 1rem;
+	padding: 0 1rem;
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -36,7 +36,7 @@
 		background-size: contain;
 		display: block;
 		height: 35px;
-		margin: 0.5rem 0.5rem 0.25rem 80px;
+		margin: 0.5rem 1rem 0.25rem 80px;
 		position: relative;
 		width: 70px;
 		z-index: 6000;
@@ -65,8 +65,9 @@
 		@extend %font-acme;
 		@include font-size(21px);
 		@include letter-spacing(60);
-		margin: 0;
+		position: relative;
 		text-transform: uppercase;
+		z-index: 6000;
 
 		@media #{$mq-900-up} {
 			font-size: 2.25vw;
@@ -79,7 +80,7 @@
 
 	.primary {
 		@extend %font-eaves-bold;
-		@include font-size(30px);
+		@include font-size(24px);
 		@include letter-spacing(10);
 		bottom: 0;
 		left: 0;
@@ -161,6 +162,15 @@
 		.current-page-parent > a {
 			// @extend %font-avenir-demi-condensed;
 			// color: $color-copper-solid;
+		}
+	}
+
+	&.active {
+		nav.primary {
+		  background-color: $color-cream;
+		  display: block;
+		  opacity: 1;
+		  transform: translateX(0);
 		}
 	}
 

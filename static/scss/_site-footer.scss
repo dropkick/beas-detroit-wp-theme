@@ -67,11 +67,12 @@
 
 		a {
 			border-radius: 50%;
+			color: transparent;
 			display: block;
 			height: 20px;
 			margin: 0 1rem;
 			// padding: 30px;
-			padding: 25px;
+			padding: 24px;
 			transition: background-color $trans-duration ease;
 			width: 20px;
 
@@ -82,30 +83,29 @@
 
 		.fb a {
 			background: $color-cream url('../img/icon-fb.svg') 50% 50% no-repeat;
-			background-size: 20px 20px;
-			color: transparent;
+			background-size: 24px 24px;
 			font-size: 1px;
 
 			&:hover {
 				background-color: $color-socmed-fb;
+				background-image: url('../img/icon-fb-lt.svg');
 			}
 		}
 
 		.ig a {
 			background: $color-cream url('../img/icon-ig.svg') 50% 50% no-repeat;
-			background-size: 20px 20px;
-			color: transparent;
+			background-size: 24px 24px;
 			font-size: 1px;
 
 			&:hover {
 				background-color: $color-socmed-ig;
+				background-image: url('../img/icon-ig-lt.svg');
 			}
 		}
 
 		.tw a {
 			background: $color-cream url('../img/icon-tw.svg') 50% 50% no-repeat;
-			background-size: 20px 20px;
-			color: transparent;
+			background-size: 24px 24px;
 			font-size: 1px;
 
 			&:hover {

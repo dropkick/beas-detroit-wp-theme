@@ -11,6 +11,7 @@
 			{% block header %}
 	        <button aria-label="Menu" class="page-header-menu-button"><span class="burger"><span class="burger-top"></span> <span class="burger-middle"></span> <span class="burger-bottom"></span></span></button>
 			<a href="{{site.url}}" class="logo" rel="home"><span>{{site.name}}</span></a>
+			<p class="tagline">The Place to Bea</p>
 				<nav class="primary">
 					{% include "menu.twig" with {'items': main_menu.get_items} %}
 				</nav>
@@ -31,7 +32,7 @@
 		{% include 'footer.twig' %}
     </footer>
  
-    {# <script src="{{ site.theme.link }}/static/js/script.js"></script> #}
+    <script src="{{ site.theme.link }}/static/js/script.js"></script>
 
 	{{ function('wp_footer') }}
 	{% endblock %}

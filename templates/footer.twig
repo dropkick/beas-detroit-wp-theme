@@ -1,1 +1,20 @@
-Copyright {{"now"|date('Y')}}
+        <section class="global-footer">
+            <a href="{{site.url}}" class="logo">
+                <img src="{{ site.theme.link }}/static/img/beas-logo-lt.svg" alt="Bea’s Detroit logo">
+            </a>
+            <div class="info-location">
+                <address>1533 Winder Street <br>Eastern Market <br>Detroit, Michigan 48207</address>
+                <a href="mailto:info@keepersheartwhiskey.com" class="email">info@keepersheartwhiskey.com</a>
+            </div>
+            <div class="info-contact">
+                <a href="mailto:hello@beasdetroit.com" class="email">hello@beasdetroit.com</a> <br>
+                <a fref="tel:3139190590" class="phone">(313) 919-0590</a> <br>
+                @beasdetroit
+            </div>
+            <div class="socmed">
+                {% include "menu-socmed.twig" with {'items': socmed_menu.get_items} %}
+            </div>
+        </section>
+        <section class="legal">
+            <p class="copyright">&copy; {{"now"|date('Y')}} Bea’s Detroit, LLC. All rights reserved.</p>
+        </section>

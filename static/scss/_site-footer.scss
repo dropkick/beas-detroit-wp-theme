@@ -17,7 +17,7 @@
 		grid-template-columns: 1fr;
 		justify-items: stretch;
 		margin: 0 auto;
-		padding: 3rem 1rem;
+		padding: 3rem 1rem 0;
 		max-width: $max-width;
 	
 		@media #{$mq-900-up} {
@@ -30,6 +30,7 @@
 			display: none;
 
 			@media #{$mq-900-up} {
+				align-self: center;
 				display: inline-block;
 			}
 
@@ -42,7 +43,7 @@
 		.info-location,
 		.info-contact,
 		.subscribe {
-			@include font-size(18px);
+			@include font-size(20px);
 			color: $color-cream;
 			// line-height: 2;
 			line-height: 1.2;
@@ -50,7 +51,11 @@
 			text-align: center;
 
 			@media #{$mq-900-up} {
-				// margin-top: 1rem;
+				font-size: 1.3vw;
+			}
+			
+			@media #{$mq-1400-up} {
+				@include font-size(18px);
 			}
 
 			address {
@@ -66,7 +71,7 @@
 		}
 
 		.subscribe {
-			text-align: left;;			
+			text-align: left;	
 		}
 	}
 
@@ -90,12 +95,18 @@
 	
 	.wpcf7-form h4 {
 		@extend %font-eaves-bold;
-		@include font-size(20px);
 		@include letter-spacing(100);
-		color: $color-cream;	
+		color: $color-cream;
+		font-size: 1.11em;
 		text-transform: uppercase;
 		margin: 0;
-		padding: 0 0 0.5em;
+		padding: 1em 0 1.5em;
+		text-align: center;
+
+		@media #{$mq-900-up} {
+			padding: 0 0 0.5em;
+			text-align: left;
+		}
 	}
 
 	.wpcf7-form p {
@@ -110,14 +121,14 @@
 	.wpcf7-text,
 	.wpcf7-email {
 		@extend %font-eaves;
-		@include font-size(18px);
 		background-color: $color-cream;	
 		border: 0;
 		border-radius: 0;
 		color: $color-blue-dark;
+		font-size: 1em;
 		line-height: 1;
-		height: 2.6875rem;
-		padding: 0.5rem 1rem;
+		height: 2.6875em;
+		padding: 0.5em 1em;
 		width: 100%;
 	}	
 
@@ -128,7 +139,7 @@
 
 	.wpcf7-submit {
 		@extend %font-eaves-bold;
-		@include font-size(18px);
+		// @include font-size(18px);
 		@include letter-spacing(100);
 		background-color: $color-cream;	
 		border: 0;
@@ -136,46 +147,54 @@
 		color: $color-blue-dark;
 		cursor: pointer;
 		display: block;
-		height: 2.6875rem;
+		font-size: 1em;
+		height: 2.6875em;
 		line-height: 1;
-		padding: 0.5rem 2rem;
+		padding: 0.5em 2em;
 		text-transform: uppercase;
 	}
 
 	.socmed {
-		align-content: flex-end;
+		@include font-size(20px);
+		align-content: center;
 		display: flex;
-		justify-content: end;
+		justify-content: center;
 		list-style: none;
 		list-style-image: none;
 		margin: 0;
-		padding: 0;
+		padding: 1rem 0 0;
 
 		@media #{$mq-900-up} {
+			align-content: end;
 			align-self: end;
+			font-size: 1.3vw;
 			justify-content: end;
 		}
 
+		@media #{$mq-1400-up} {
+			@include font-size(18px);
+		}
+		
 		a {
 			border-radius: 50%;
 			color: transparent;
 			display: block;
-			height: 20px;
+			height: 1em;
 			margin: 0 1rem;
-			// padding: 30px;
-			padding: 22px;
+			padding: 1.6em;
 			transition: background-color $trans-duration ease;
-			width: 20px;
+			width: 1em;
 
 			@media #{$mq-900-up} {
-				margin: 0 0 0 0.5rem;
+				margin: 0 0 0 0.5em;
+				padding: 1.375em;
 			}
 		}
 
 		.fb a {
 			background: $color-cream url('../img/icon-fb.svg') 50% 50% no-repeat;
-			background-size: 24px 24px;
-			font-size: 1px;
+			background-size: 1.333em 1.333em;
+			// font-size: 1px;
 
 			&:hover {
 				background-color: $color-socmed-fb;
@@ -185,8 +204,8 @@
 
 		.ig a {
 			background: $color-cream url('../img/icon-ig.svg') 50% 50% no-repeat;
-			background-size: 24px 24px;
-			font-size: 1px;
+			background-size: 1.333em 1.333em;
+			// font-size: 1px;
 
 			&:hover {
 				background-color: $color-socmed-ig;
@@ -196,8 +215,8 @@
 
 		.tw a {
 			background: $color-cream url('../img/icon-tw.svg') 50% 50% no-repeat;
-			background-size: 24px 24px;
-			font-size: 1px;
+			background-size: 1.333em 1.333em;
+			// font-size: 1px;
 
 			&:hover {
 				background-color: $color-socmed-tw;

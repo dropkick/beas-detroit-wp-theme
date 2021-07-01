@@ -17,9 +17,9 @@
 		grid-template-columns: 1fr;
 		justify-items: stretch;
 		margin: 0 auto;
-		padding: 3rem 1rem 0;
 		max-width: $max-width;
-	
+		padding: 3rem 1rem 0;
+
 		@media #{$mq-900-up} {
 			grid-template-columns: 1fr 1fr 1fr 1.5fr 0.5fr;
 			// margin: 0 4.375rem;
@@ -53,7 +53,7 @@
 			@media #{$mq-900-up} {
 				font-size: 1.3vw;
 			}
-			
+
 			@media #{$mq-1400-up} {
 				@include font-size(18px);
 			}
@@ -71,37 +71,38 @@
 		}
 
 		.subscribe {
-			text-align: left;	
+			text-align: left;
 		}
 	}
 
-	.wpcf7 form .wpcf7-response-output, 
-	.wpcf7 form.unaccepted .wpcf7-response-output {
+	.wpcf7  .wpcf7-response-output,
+	.wpcf7 .unaccepted .wpcf7-response-output {
 		@extend %font-eaves-bold;
 		border: 0;
-		padding: 0;
 		margin: 0.5em 0 0;
+		padding: 0;
 	}
 
 	.wpcf7-not-valid-tip {
 		@extend %font-eaves-bold;
 		@include font-size(11px);
-		grid-column-start: 0;
+		background: $color-white;
 		grid-column-end: 1;
+		grid-column-start: 0;
 		line-height: 2;
 		padding-left: 1rem;
 		text-transform: uppercase;
 	}
-	
+
 	.wpcf7-form h4 {
 		@extend %font-eaves-bold;
 		@include letter-spacing(100);
 		color: $color-cream;
 		font-size: 1.11em;
-		text-transform: uppercase;
 		margin: 0;
 		padding: 1em 0 1.5em;
 		text-align: center;
+		text-transform: uppercase;
 
 		@media #{$mq-900-up} {
 			padding: 0 0 0.5em;
@@ -111,26 +112,26 @@
 
 	.wpcf7-form p {
 		display: grid;
-		position: relative;
 		gap: 1em;
 		grid-template-columns: 2fr 1fr;
 		margin: 0;
+		position: relative;
 		width: 100%;
 	}
-	
+
 	.wpcf7-text,
 	.wpcf7-email {
 		@extend %font-eaves;
-		background-color: $color-cream;	
+		background-color: $color-white;
 		border: 0;
 		border-radius: 0;
 		color: $color-blue-dark;
 		font-size: 1em;
-		line-height: 1;
 		height: 2.6875em;
+		line-height: 1;
 		padding: 0.5em 1em;
 		width: 100%;
-	}	
+	}
 
 	.wpcf7-form .ajax-loader {
 		display: none;
@@ -139,9 +140,8 @@
 
 	.wpcf7-submit {
 		@extend %font-eaves-bold;
-		// @include font-size(18px);
 		@include letter-spacing(100);
-		background-color: $color-cream;	
+		background-color: $color-cream;
 		border: 0;
 		border-radius: 1.5em;
 		color: $color-blue-dark;
@@ -152,6 +152,14 @@
 		line-height: 1;
 		padding: 0.5em 2em;
 		text-transform: uppercase;
+		transition: background-color $trans-duration ease, color $trans-duration ease;
+
+		&:hover,
+		&:focus,
+		&:active{
+			background-color: $color-blue-dark;
+			color: $color-cream;
+		}
 	}
 
 	.socmed {
@@ -165,16 +173,18 @@
 		padding: 1rem 0 0;
 
 		@media #{$mq-900-up} {
-			align-content: end;
-			align-self: end;
+			// align-content: end;
+			// align-self: end;
 			font-size: 1.3vw;
-			justify-content: end;
+			// justify-content: end;
+			margin-top: 2rem;
+			padding: 1.8333em 0 0;
 		}
 
 		@media #{$mq-1400-up} {
 			@include font-size(18px);
 		}
-		
+	
 		a {
 			border-radius: 50%;
 			color: transparent;
@@ -182,6 +192,7 @@
 			height: 1em;
 			margin: 0 1rem;
 			padding: 1.6em;
+			text-indent: -100vw;
 			transition: background-color $trans-duration ease;
 			width: 1em;
 

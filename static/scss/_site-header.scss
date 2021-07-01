@@ -9,7 +9,7 @@
 	right: 0;
 	top: 0;
 	z-index: 5000;
-	
+
 	@media #{$mq-900-up} {
 		background: $color-blue-light;
 		// display: grid;
@@ -24,7 +24,7 @@
 		justify-content: center;
 		margin: 0 auto;
 		max-width: $max-width;
-		
+
 		@media #{$mq-900-up} {
 			align-items: center;
 			display: grid;
@@ -104,20 +104,20 @@
 		text-transform: uppercase;
 		top: 0;
 		transform: translateX(-100%);
-		transition: all 0.3s ease-in-out;
+		transition: all $trans-duration ease-in-out;
 		z-index: 4000;
 
 		@media #{$mq-900-up} {
 			@include font-size(18px);
 			bottom: auto;
 			display: inherit;
+			justify-self: end;
 			left: auto;
 			opacity: 1;
 			overflow-y: visible;
 			padding: 0;
 			position: relative;
 			right: 0;
-			justify-self: end;
 			top: auto;
 			transform: none;
 			transition: none;
@@ -126,7 +126,7 @@
 		@media #{$mq-900-up} {
 			font-size: 1.3vw;
 		}
-		
+
 		@media #{$mq-1400-up} {
 			@include font-size(20px);
 		}
@@ -152,22 +152,53 @@
 			display: block;
 			line-height: 1;
 			padding: 0.4em 1em 0.4em 0;
+			position: relative;
 			text-decoration: none;
-			transition: color $trans-duration ease;
+			transition: all $trans-duration ease;
 
 			@media #{$mq-900-up} {
 				// background-color: $base-page-background;
-				padding: 0.25em 0.75em;
+				margin: 0 0.75em;
+				padding: 0.25em 0;
+
+				&:before,
+				&:after {
+					background-color: $color-blue-med;
+					bottom: -0.25em;
+					content: ' ';
+					height: 0.125em;
+					// left: 50%;
+					margin: 0.25em 0 0;
+					opacity: 0;
+					position: absolute;
+					right: 50%;
+					transition-duration: $trans-duration;
+					width: 0;
+				}
 			}
 
 			@media #{$mq-1180-up} {
-				padding: 0.25em 0.75em;
+				padding: 0.25em 0;
 			}
 		}
 
 		a:hover,
 		a:active {
-			color: $color-blue-med;
+			// color: $color-blue-med;
+
+			@media #{$mq-900-up} {
+				&:before {
+					left: 50%;
+					opacity: 1;
+					width: 50%;
+				}
+
+				&:after {
+					opacity: 1;
+					right: 50%;
+					width: 50%;
+				}
+			}
 		}
 
 		.current-menu-item > a,
@@ -178,11 +209,11 @@
 	}
 
 	&.active {
-		nav.primary {
-		  background-color: $color-cream;
-		  display: block;
-		  opacity: 1;
-		  transform: translateX(0);
+		.primary {
+			background-color: $color-cream;
+			display: block;
+			opacity: 1;
+			transform: translateX(0);
 		}
 	}
 

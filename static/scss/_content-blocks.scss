@@ -1,0 +1,197 @@
+.page-template-page-contact {
+	.outer-content {
+		background-color: $color-grey-med;
+		color: $color-blue-light;
+        min-height: 100%;
+	}
+
+	.content-wrapper {
+        padding: 5.5rem 1rem 1rem;
+
+		@media #{$mq-900-up} {
+			padding: 7rem 10% 7rem 7.5%;
+		}
+	}
+
+	.article-body {
+		display: grid;
+        gap: 1rem;
+		grid-template-columns: 1fr;
+	
+        @media #{$mq-900-up} {
+            gap: 7%;
+            grid-template-columns: 6fr 4fr;
+        }
+    }
+
+    @media #{$mq-900-up} {
+        .text {
+            order: 2;
+        }
+
+        .map-embed {
+            order: 1;
+        }
+    }
+
+    .article-h1 {
+		@extend %font-eaves-bold;
+		@include font-size(32px);
+		@include letter-spacing(10);
+        line-height: 1.2;
+        margin: 0;
+        padding: 0 0 0.5em;
+        text-transform: uppercase;
+    }
+
+	.wpcf7 .wpcf7-response-output,
+	.wpcf7 .unaccepted .wpcf7-response-output {
+		@extend %font-eaves-bold;
+		border: 0;
+		margin: 0.5em 0 0;
+		padding: 0;
+	}
+
+	.wpcf7-not-valid-tip {
+		@extend %font-eaves-bold;
+		@include font-size(11px);
+		background: $color-white;
+		grid-column-end: 1;
+		grid-column-start: 0;
+		line-height: 2;
+		padding-left: 1rem;
+		text-transform: uppercase;
+	}
+
+	.wpcf7-form h4 {
+		@extend %font-eaves-bold;
+		@include letter-spacing(100);
+		color: $color-cream;
+		font-size: 1.11em;
+		margin: 0;
+		padding: 1em 0 1.5em;
+		text-align: center;
+		text-transform: uppercase;
+
+		@media #{$mq-900-up} {
+			padding: 0 0 0.5em;
+			text-align: left;
+		}
+	}
+
+	.wpcf7-form p {
+		// display: grid;
+		// gap: 1em;
+		// grid-template-columns: 2fr 1fr;
+		margin: 0;
+		position: relative;
+		width: 100%;
+	}
+
+    .wpcf7-form-control-wrap {
+        // margin: 0 0 1em;
+		display: block;
+        padding: 0 0 1em;
+    }
+
+	.wpcf7-text,
+	.wpcf7-email {
+		@extend %font-eaves;
+		background-color: $color-white;
+		border: 0;
+		border-radius: 0;
+		color: $color-blue-dark;
+		font-size: 1em;
+		height: 2.6875em;
+		line-height: 1;
+		padding: 0.5em 1em;
+		width: 100%;
+	}
+
+    .wpcf7-textarea {
+		@extend %font-eaves;
+		background-color: $color-white;
+		border: 0;
+		border-radius: 0;
+		color: $color-blue-dark;
+		font-size: 1em;
+		line-height: 1;
+        margin: 0 0 1em;
+		padding: 0.5em 1em 0;
+		width: 100%;
+    }
+
+	.wpcf7-form .ajax-loader {
+		display: none;
+		visibility: hidden;
+	}
+
+	.wpcf7-submit {
+		@extend %font-eaves-bold;
+		@include letter-spacing(100);
+		background-color: $color-blue-med;
+		border: 0;
+		border-radius: 1.5em;
+		color: $color-white;
+		cursor: pointer;
+		display: block;
+		font-size: 1em;
+		height: 2.6875em;
+		line-height: 1;
+		padding: 0.5em 2em;
+		text-transform: uppercase;
+		transition: background-color $trans-duration ease, color $trans-duration ease;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $color-cream;
+			color: $color-blue-dark;
+		}
+	}
+
+    .buttons {
+        padding: 0;
+        position: relative;
+    }
+
+    .addl {
+		@include font-size(20px);
+        align-items: end;
+        color: $color-blue-light;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 2fr 1fr;
+        justify-content: center;
+        line-height: 1.2;
+
+        p {
+            margin: 0;
+            padding: 0 0 1em;
+        }
+        
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            color: $color-blue-light;
+            text-decoration: none;
+        }
+
+        .copy {
+            margin-bottom: -1em;
+        }
+        
+        image {
+            align-content: end;
+        }
+        
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 140px;
+            width: 100%;
+        }
+    }
+
+}

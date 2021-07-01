@@ -1,0 +1,65 @@
+.section-headline {
+	@extend %font-acme;
+	@include font-size(30px);
+	@include letter-spacing(10);
+	line-height: 1;
+	margin: 0 auto;
+	padding: 0 0 1em;
+	text-align: center;
+	text-transform: uppercase;
+
+	@media #{$mq-900-up} {
+		font-size: 4vw;
+	}
+
+	@media #{$mq-1400-up} {
+		@include font-size(90px);
+	}
+}
+
+.sub-headline {
+	@extend %font-eaves-bold;
+	@include font-size(45px);
+	@include letter-spacing(50);
+	line-height: 1.1;
+	margin: 0;
+	padding: 0 0 1em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.text-headline {
+	@extend %font-eaves-bold;
+	@include font-size(30px);
+	@include letter-spacing(50);
+	line-height: 1.1;
+	margin: 0;
+	padding: 0 0 1em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.graf-headline {
+	@extend %font-eaves-bold;
+	line-height: 1.1;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.base-graf {
+	@extend %font-eaves;
+	@include font-size(20px);
+	@include letter-spacing(10);
+	line-height: 1.2;
+	margin: 0;
+	padding: 0 0 1em;
+
+	@media #{$mq-900-up} {
+		font-size: 2vw;
+	}
+
+	@media #{$mq-1400-up} {
+		@include font-size(30px);
+	}
+}

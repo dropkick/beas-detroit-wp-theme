@@ -31,11 +31,16 @@ a {
 	color: $base-link-color;
 }
 
-.content-wrapper {
+.outer-content {
 	background-color: $color-cream;
 	margin: 0 auto;
-	max-width: $max-width;
 	padding: 0;
+	
+	.content-wrapper {
+		margin: 0 auto;
+		max-width: $max-width;
+		padding: 0;
+	}
 }
 
 img {

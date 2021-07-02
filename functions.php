@@ -41,6 +41,17 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Reusable Blocks',
+		'menu_title'	=> 'Reusable Blocks',
+		'menu_slug' 	=> 'theme-reusable-blocks',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+}
+
 /**
  * Sets the directories (inside your theme) to find .twig files
  */

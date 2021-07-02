@@ -147,7 +147,6 @@
 		}
 
 		a {
-			// background-color: transparent;
 			color: $color-blue-dark;
 			display: block;
 			line-height: 1;
@@ -156,7 +155,6 @@
 			text-decoration: none;
 
 			@media #{$mq-900-up} {
-				// background-color: $base-page-background;
 				margin: 0 0.75em;
 				padding: 0.25em 0;
 
@@ -183,7 +181,10 @@
 			}
 		}
 
+		.current-menu-item > a,
+		.current-page-parent > a,
 		a:hover,
+		a:focus,
 		a:active {
 			// color: $color-blue-med;
 
@@ -194,12 +195,6 @@
 					visibility: visible;
 				}
 			}
-		}
-
-		.current-menu-item > a,
-		.current-page-parent > a {
-			// @extend %font-avenir-demi-condensed;
-			// color: $color-copper-solid;
 		}
 	}
 

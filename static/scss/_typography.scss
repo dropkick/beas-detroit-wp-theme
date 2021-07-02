@@ -9,7 +9,7 @@
 	text-transform: uppercase;
 
 	@media #{$mq-900-up} {
-		font-size: 4vw;
+		font-size: 5.6vw;
 	}
 
 	@media #{$mq-1400-up} {
@@ -19,13 +19,21 @@
 
 .sub-headline {
 	@extend %font-eaves-bold;
-	@include font-size(45px);
+	@include font-size(18px);
 	@include letter-spacing(50);
 	line-height: 1.1;
 	margin: 0;
-	padding: 0 0 1em;
+	padding: 0 0 0.5em;
 	text-align: center;
 	text-transform: uppercase;
+
+	@media #{$mq-900-up} {
+		font-size:2.7vw;
+	}
+
+	@media #{$mq-1400-up} {
+		@include font-size(45px);
+	}
 }
 
 .text-headline {
@@ -37,6 +45,33 @@
 	padding: 0 0 1em;
 	text-align: center;
 	text-transform: uppercase;
+
+	@media #{$mq-900-up} {
+		font-size:2.7vw;
+	}
+
+	@media #{$mq-1400-up} {
+		@include font-size(45px);
+	}
+}
+
+h4 {
+	@extend %font-eaves-bold;
+	@include font-size(22px);
+	@include letter-spacing(50);
+	line-height: 1.1;
+	margin: 0;
+	padding: 0 0 1em;
+	text-align: inherit;
+	text-transform: uppercase;
+
+	@media #{$mq-900-up} {
+		font-size:2.7vw;
+	}
+
+	@media #{$mq-1400-up} {
+		@include font-size(33px);
+	}
 }
 
 .graf-headline {
@@ -61,6 +96,16 @@
 
 	@media #{$mq-1400-up} {
 		@include font-size(30px);
+	}
+}
+
+.copy ul {
+	@extend %base-graf;
+	line-height: 1.35;
+	padding: 0 0 0 1em;
+
+	li {
+		padding-bottom: 0.75em;
 	}
 }
 

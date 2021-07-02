@@ -11,29 +11,37 @@
 
 			{% for content_block in post.meta('content_blocks') %}
 				{% if content_block.acf_fc_layout == 'head_and_copy' %}
-				<section class="head-n-copy {% if content_block.block_color %}{{ content_block.block_color }}{% endif %}">
-					<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
-					<div class="copy">{{ content_block.section_copy|wpautop }}</div>
-					{% if content_block.icon_gfx_left or content_block.icon_gfx_right %}
-					<div class="icon-gfx gfx-left">{% if content_block.icon_gfx_left %}<img src="{{ Image(content_block.icon_gfx_left).src }}">{% endif %}</div>
-					<div class="icon-gfx gfx-right">{% if content_block.icon_gfx_right %}<img src="{{ Image(content_block.icon_gfx_right).src }}">{% endif %}</div>
-					{% endif %}
+				<section class="head-n-copy {% if content_block.block_color %}{{ content_block.block_color }}{% endif %}{% if content_block.icon_gfx_left or content_block.icon_gfx_right %} gfx{% endif %}">
+					<div class="content-wrapper">
+						<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
+						<div class="inner-wrapper">
+							<div class="copy">{{ content_block.section_copy|wpautop }}</div>
+							{% if content_block.icon_gfx_left or content_block.icon_gfx_right %}
+							<div class="icon-gfx gfx-left">{% if content_block.icon_gfx_left %}<img src="{{ Image(content_block.icon_gfx_left).src }}">{% endif %}</div>
+							<div class="icon-gfx gfx-right">{% if content_block.icon_gfx_right %}<img src="{{ Image(content_block.icon_gfx_right).src }}">{% endif %}</div>
+							{% endif %}
+						</div>
+					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'image_wide' %}
 				<section class="image-wide">
+					<div class="content-wrapper">
 					{% if content_block.image %}<img src="{{ Image(content_block.image).src }}">{% endif %}
+					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'image_cta' %}
 				<section class="image-cta">
-					{% if content_block.image %}<img src="{{ Image(content_block.image).src }}">{% endif %}
-					<a href="{{ content_block.cta_link }}">{{ content_block.cta_label }}</a>
+					<div class="content-wrapper">
+						{% if content_block.image %}<img src="{{ Image(content_block.image).src }}">{% endif %}
+						<a class="cta-btn" href="{{ content_block.cta_link }}">{{ content_block.cta_label }}</a>
+					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'images_1_1' %}
-				<section class="image-1-1">
-					<div class="inner">
+				<section class="images-1-1">
+					<div class="content-wrapper">
 					{% for item in content_block.images -%}
 						<img src="{{ Image(item.image).src() }}">
 					{% endfor %}
@@ -41,8 +49,8 @@
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'images_1_1_1' %}
-				<section class="image-1-1-1">
-					<div class="inner">
+				<section class="images-1-1-1">
+					<div class="content-wrapper">
 					{% for item in content_block.images -%}
 						<img src="{{ Image(item.image).src() }}">
 					{% endfor %}
@@ -50,8 +58,8 @@
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'images_2_1' %}
-				<section class="image-2-1">
-					<div class="inner">
+				<section class="images-2-1">
+					<div class="content-wrapper">
 					{% for item in content_block.images -%}
 						<img src="{{ Image(item.image).src() }}">
 					{% endfor %}
@@ -60,64 +68,74 @@
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'striped_frame' %}
 				<section class="striped-frame {% if content_block.block_color %}{{ content_block.block_color }}{% endif %}">
-					<h2 class="sub-headline">{{ content_block.section_headsubline|nl2br }}</h2>
-					<h3 class="section-headline">{{ content_block.section_headline|nl2br }}</h3>
-					<div class="copy">{{ content_block.section_copy|wpautop }}</div>
-					{% if content_block.cta_link and content_block.cta_label %}
-					<a href="{{ content_block.cta_link }}">{{ content_block.cta_label }}</a>
-					{% endif %}
+					<div class="content-wrapper">
+						<h2 class="sub-headline">{{ content_block.section_subheadline|nl2br }}</h2>
+						<h3 class="section-headline">{{ content_block.section_headline|nl2br }}</h3>
+						<div class="copy">{{ content_block.section_copy|wpautop }}</div>
+						{% if content_block.cta_link and content_block.cta_label %}
+						<a class="cta-btn" href="{{ content_block.cta_link }}">{{ content_block.cta_label }}</a>
+						{% endif %}
+					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'striped_frame_headline' %}
 				<section class="striped-frame-headline">
-					<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
+					<div class="content-wrapper">
+						<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
+					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'must_see' %}
-				<section class="striped-frame {% if content_block.block_color %}{{ content_block.block_color }}{% endif %}">
-					<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
-					<div class="copy">
-						<ul>
-						{% for item in content_block.section_items %}
-							<li {% if item.insider_tip == 'yes' %}class="insider-tip"{% endif %}>{{ item.item|nl2br }}</li>
-						{% endfor %}
-						</ul>
+				<section class="must-see {% if content_block.block_color %}{{ content_block.block_color }}{% endif %}">
+					<div class="content-wrapper">
+						<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
+						<div class="copy">
+							<ul>
+							{% for item in content_block.section_items %}
+								<li {% if item.insider_tip == 'yes' %}class="insider-tip"{% endif %}>{{ item.item|nl2br }}</li>
+							{% endfor %}
+							</ul>
+						{% if content_block.icon_gfx %}<div class="icon-gfx"><img src="{{ Image(content_block.icon_gfx).src }}"></div>{% endif %}
+						</div>
 					</div>
-					{% if content_block.icon_gfx %}<div class="icon-gfx"><img src="{{ Image(content_block.icon_gfx).src }}"></div>{% endif %}
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'destination_spotlight' %}
 				<section class="destination-spotlight">
-					<h2 class="sub-headline">{{ content_block.section_headsubline|nl2br }}</h2>
-					<h3 class="section-headline">{{ content_block.section_headline|nl2br }}</h3>
-					<div class="copy">
-						<div class="col col-1">
-							{{ content_block.section_copy|wpautop }}
-						</div>
-						<div class="col col-2">
-							{{ content_block.section_copy_2|wpautop }}
-							{% if content_block.image %}<img src="{{ Image(content_block.image).src() }}">{% endif %}
+					<div class="content-wrapper">
+						<h2 class="sub-headline">{{ content_block.section_subheadline|nl2br }}</h2>
+						<h3 class="section-headline">{{ content_block.section_headline|nl2br }}</h3>
+						<div class="copy">
+							<div class="col col-1">
+								{{ content_block.section_copy|wpautop }}
+							</div>
+							<div class="col col-2">
+								{{ content_block.section_copy_2|wpautop }}
+								{% if content_block.image %}<img src="{{ Image(content_block.image).src() }}">{% endif %}
+							</div>
 						</div>
 					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'our_journey' %}
 				<section class="journey">
-					<h3 class="sub-headline">{{ content_block.section_headline|nl2br }}</h3>
-					<div class="copy">
-						<div class="col col-1">
-							{{ content_block.section_copy|wpautop }}
+					<div class="content-wrapper">
+						<h2 class="sub-headline">{{ content_block.section_headline|nl2br }}</h2>
+						<div class="copy">
+							<div class="col col-1">
+								{{ content_block.section_copy|wpautop }}
+							</div>
+							<div class="col col-2">
+								{{ content_block.section_copy_2|wpautop }}
+								{% if content_block.image %}<img src="{{ Image(content_block.image).src() }}">{% endif %}
+							</div>
 						</div>
-						<div class="col col-2">
-							{{ content_block.section_copy_2|wpautop }}
-							{% if content_block.image %}<img src="{{ Image(content_block.image).src() }}">{% endif %}
 						</div>
-					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'home_hero' %}
 				<section class="home-hero">
-					<div class="inner">
+					<div class="content-wrapper">
 						<div class="image"><img src="{{ Image(content_block.image_left).src }}"></div>
 						<div class="image"><img src="{{ Image(content_block.image_right).src }}"></div>
 					</div>
@@ -125,31 +143,38 @@
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'photo_text' %}
 				<section class="photo-text">
-					<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
-					<div class="photo"><img src="{{ Image(content_block.image).src }}"></div>
-					<div class="copy">
-					{{ content_block.section_copy|wpautop }}
-					{% if content_block.cta_link and content_block.cta_label %}
-						<a href="{{ content_block.cta_link }}">{{ content_block.cta_label }}</a>
-					{% endif %}
-					{% if content_block.icon_gfx %}<div class="icon-gfx"><img src="{{ Image(content_block.icon_gfx).src }}"></div>{% endif %}
+					<div class="content-wrapper">
+						<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
+						<div class="inner-wrapper">
+							<div class="photo"><img src="{{ Image(content_block.image).src }}"></div>
+							<div class="copy">
+							{{ content_block.section_copy|wpautop }}
+							{% if content_block.cta_link and content_block.cta_label %}
+								<a class="cta-btn" href="{{ content_block.cta_link }}">{{ content_block.cta_label }}</a>
+							{% endif %}
+							{% if content_block.icon_gfx %}<div class="icon-gfx"><img src="{{ Image(content_block.icon_gfx).src }}"></div>{% endif %}
+						</div>
+						</div>
 					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'amenities' %}
 				<section class="amenities">
-					<div class="inner">
+					<div class="content-wrapper">
 					{% if options.amenities_headline %}<h2 class="section-headline">{{ options.amenities_headline }}</h2>{% endif %}
-					{% for amenity in options.amenities %}
-						<img src="{{ Image(amenity.amenety_image).src() }}">
-					{% endfor %}
+						<div class="inner-wrapper">
+						{% for amenity in options.amenities %}
+							<img src="{{ Image(amenity.amenety_image).src() }}">
+						{% endfor %}
+						</div>
 					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'space' %}
 				<section class="the-space">
-					<div class="inner">
+					<div class="content-wrapper">
 					{% if options.amenities_headline %}<h2 class="section-headline">{{ options.space_headline }}</h2>{% endif %}
+					<div class="inner-wrapper">
 					{% for space in options.spaces -%}
 						<div class="space">
 							<h4>{{ space.label|nl2br }}</h4>
@@ -157,16 +182,21 @@
 						</div>
 					{% endfor %}
 					</div>
+					</div>
 				</section>
 				{% endif %}
 				{% if content_block.acf_fc_layout == 'social_feed' %}
 				<section class="social-feed">
-					<div class="inner">
+					<div class="content-wrapper">
 					{% if options.social_feed_headline %}<h2 class="section-headline">{{ options.social_feed_headline }}</h2>{% endif %}
 					{{ options.social_feed_shortcode|shortcodes }}
 					</div>
 				</section>
 				{% endif %}
+				{% if content_block.acf_fc_layout == 'horiz_space' %}
+				<section class="horiz-space"></section>
+				{% endif %}
+
 			{% endfor %}
 			</div>
 		</div>

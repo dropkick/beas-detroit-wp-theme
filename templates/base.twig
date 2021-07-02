@@ -21,12 +21,12 @@
 		</header>
 
 		<section id="content" role="main" class="outer-content">
-			<div class="content-wrapper">
-				{% if title %}<h1>{{title}}</h1>{% endif %}
+			{# <div class="content-wrapper"> #}
+				{# {% if title %}<h1>{{title}}</h1>{% endif %} #}
 				{% block content %}
 					No content to display.
 				{% endblock %}
-			</div>
+			{# </div> #}
 		</section>
 
 	{% block footer %}
@@ -37,6 +37,7 @@
     <script src="{{ site.theme.link }}/static/js/script.js"></script>
 
 	{{ function('wp_footer') }}
+    {{ options.analytics_tracking_embed_code }}
 	{% endblock %}
 </body>
 </html>

@@ -4,7 +4,7 @@
 	@include letter-spacing(10);
 	line-height: 1;
 	margin: 0 auto;
-	padding: 0 0 1em;
+	padding: 0 0 0.25em;
 	text-align: center;
 	text-transform: uppercase;
 
@@ -47,7 +47,7 @@
 	text-transform: uppercase;
 }
 
-.base-graf {
+%base-graf {
 	@extend %font-eaves;
 	@include font-size(20px);
 	@include letter-spacing(10);
@@ -62,4 +62,8 @@
 	@media #{$mq-1400-up} {
 		@include font-size(30px);
 	}
+}
+
+.article-body p {
+	@extend %base-graf;
 }

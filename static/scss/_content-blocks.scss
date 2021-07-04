@@ -725,6 +725,30 @@
 	}
 }
 
+.video-block {
+	padding: 0 1rem;
+	
+	.content-wrapper {
+		display: grid;
+		grid-template-columns: 1fr; 
+
+		video {
+			padding-bottom: 1rem;
+			width: 100%;
+		}
+
+		@media #{$mq-900-up} {
+			video {
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	@media #{$mq-900-up} {
+		padding: 2rem 2rem 0;
+	}
+}
+
 .images-1-1 {
 	padding: 0 1rem;
 	

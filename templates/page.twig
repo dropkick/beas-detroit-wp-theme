@@ -39,10 +39,21 @@
 					</div>
 				</section>
 				{% endif %}
+				{% if content_block.acf_fc_layout == 'video_block' %}
+				<section class="video-block">
+					<div class="content-wrapper">
+						<video controls preload="none" poster="{{ Image(content_block.video_poster_image).src() }}">
+                    	<source src="{{ content_block.video_h264 }}" type="video/mp4">
+                    	<source src="{{ content_block.video_webm }}" type="video/webm">
+	                	</video>
+					
+					</div>
+				</section>
+				{% endif %}
 				{% if content_block.acf_fc_layout == 'images_1_1' %}
 				<section class="images-1-1">
 					<div class="content-wrapper">
-					{% for item in content_block.images -%}
+					{% for item in content_block.images %}
 						<img src="{{ Image(item.image).src() }}">
 					{% endfor %}
 					</div>
@@ -51,7 +62,7 @@
 				{% if content_block.acf_fc_layout == 'images_1_1_1' %}
 				<section class="images-1-1-1">
 					<div class="content-wrapper">
-					{% for item in content_block.images -%}
+					{% for item in content_block.images %}
 						<img src="{{ Image(item.image).src() }}">
 					{% endfor %}
 					</div>
@@ -60,7 +71,7 @@
 				{% if content_block.acf_fc_layout == 'images_2_1' %}
 				<section class="images-2-1">
 					<div class="content-wrapper">
-					{% for item in content_block.images -%}
+					{% for item in content_block.images %}
 						<img src="{{ Image(item.image).src() }}">
 					{% endfor %}
 					</div>

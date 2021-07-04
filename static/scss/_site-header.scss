@@ -88,6 +88,15 @@
 		@media #{$mq-1400-up} {
 			@include font-size(36px);
 		}
+
+		a,
+		a:visited,
+		a:hover,
+		a:active,
+		a:focus {
+			color: $color-blue-dark;
+			text-decoration: none;
+		}
 	}
 
 	.primary {

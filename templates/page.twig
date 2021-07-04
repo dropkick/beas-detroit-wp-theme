@@ -164,7 +164,9 @@
 					{% if options.amenities_headline %}<h2 class="section-headline">{{ options.amenities_headline }}</h2>{% endif %}
 						<div class="inner-wrapper">
 						{% for amenity in options.amenities %}
+							{% if amenity.amenity_url %}<a href="{{  amenity.amenity_url }}">{% endif %}
 							<img src="{{ Image(amenity.amenety_image).src() }}">
+							{% if amenity.amenity_url %}</a>{% endif %}
 						{% endfor %}
 						</div>
 					</div>

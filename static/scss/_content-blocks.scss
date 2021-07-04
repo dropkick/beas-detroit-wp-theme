@@ -614,10 +614,12 @@
 	.content-wrapper {
 		// background-color: $color-blue-light;
 		color: $color-blue-dark;
-		padding: 2em 2em 4em;
+		// padding: 2em 2em 4em;
+		padding: 2em 0 2em;
 
 		@media #{$mq-900-up} {
-			padding: 5em 5%;
+			// padding: 5em 5%;
+			padding: 5em 1em 2em;
 		}
 	}
 

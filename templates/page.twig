@@ -160,41 +160,25 @@
 							<h2 id="thing" class="doit section-headline">{{ thing.text }}</h2>
 							{% endif %}
 							{% endfor %}
-<script>
-var things = [
-{% for thing in content_block.things_to_do %}
-" {{ thing.text }}",
-{% endfor %}
-];
-var count = 0;
-var headline = document.getElementById('thing');
+								<script>
+								var things = [
+								{% for thing in content_block.things_to_do %}
+								" {{ thing.text }}",
+								{% endfor %}
+								];
+								var count = 0;
+								var headline = document.getElementById('thing');
+								changeThing(); // Call the changeWord function
+								setInterval(changeThing, 3000); // Call it every 3 seconds
 
-/*
- * The reason we do the following twice is because setInterval won't
- * initially call the changeWord function until 3 seconds has passed,
- * by doing it once first we make sure that we are changing the word
- * as soon as it starts.
- */
-
-changeThing(); // Call the changeWord function
-setInterval(changeThing, 3000); // Call it every 3 seconds
-
-function changeThing() {
-
-    // Define the word to create
-    var current_thing = things[count];
-    console.log(current_thing);
-
-    // Change the word in the HTML
-	headline.innerHTML = current_thing;
-
-    // Get the next word index in the array
-    count++;
-
-    // If we've reached the end of the word list, go back to the start
-    if (count == things.length) { count = 0; }
-}
-</script>
+								function changeThing() {
+									var current_thing = things[count];
+									console.log(current_thing);
+									headline.innerHTML = current_thing;
+									count++;
+									if (count == things.length) { count = 0; }
+								}
+								</script>
 							</div>
 							{%if content_block.image_right_footer %}
 							<div class="image"><img src="{{ Image(content_block.image_right_footer).src }}"></div>
@@ -237,15 +221,30 @@ function changeThing() {
 				{% if content_block.acf_fc_layout == 'space' %}
 				<section class="the-space">
 					<div class="content-wrapper">
-					{% if options.amenities_headline %}<h2 class="section-headline">{{ options.space_headline }}</h2>{% endif %}
+					{% if options.space_headline %}<h2 class="section-headline">{{ options.space_headline }}</h2>{% endif %}
 					<div class="inner-wrapper">
-					{% for space in options.spaces -%}
+					{% for space in options.spaces %}
 						<div class="space">
 							<h4>{{ space.label|nl2br }}</h4>
 							<img src="{{ Image(space.image).src() }}">
 						</div>
 					{% endfor %}
 					</div>
+					</div>
+				</section>
+				{% endif %}
+				{% if content_block.acf_fc_layout == 'contact_form' %}
+				<section class="contact-form" id="form">
+					<div class="content-wrapper">
+						<h2 class="section-headline">{{ content_block.section_headline|nl2br }}</h2>
+						<div class="copy">
+						{% if content_block.section_copy %}
+						{{ content_block.section_copy|wpautop }}
+						{% endif %}
+						{% if content_block.contact_form %}
+						<div class="form">{{content_block.contact_form|shortcodes}}</div>
+						{% endif %}
+						</div>
 					</div>
 				</section>
 				{% endif %}
@@ -260,7 +259,6 @@ function changeThing() {
 				{% if content_block.acf_fc_layout == 'horiz_space' %}
 				<section class="horiz-space"></section>
 				{% endif %}
-
 			{% endfor %}
 			</div>
 		</div>

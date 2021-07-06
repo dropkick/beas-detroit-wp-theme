@@ -147,8 +147,59 @@
 				{% if content_block.acf_fc_layout == 'home_hero' %}
 				<section class="home-hero">
 					<div class="content-wrapper">
-						<div class="image"><img src="{{ Image(content_block.image_left).src }}"></div>
-						<div class="image"><img src="{{ Image(content_block.image_right).src }}"></div>
+						<div class="col col-1">
+							<div class="image"><img src="{{ Image(content_block.image_left).src }}"></div>
+						</div>
+						<div class="col col-2">
+							{%if content_block.image_right_header %}
+							<div class="image"><img src="{{ Image(content_block.image_right_header).src }}"></div>
+							{% endif %}
+							<div class="doit">
+							{% for thing in content_block.things_to_do %}
+							{% if loop.first %}
+							<h2 id="thing" class="doit section-headline">{{ thing.text }}</h2>
+							{% endif %}
+							{% endfor %}
+<script>
+var things = [
+{% for thing in content_block.things_to_do %}
+" {{ thing.text }}",
+{% endfor %}
+];
+var count = 0;
+var headline = document.getElementById('thing');
+
+/*
+ * The reason we do the following twice is because setInterval won't
+ * initially call the changeWord function until 3 seconds has passed,
+ * by doing it once first we make sure that we are changing the word
+ * as soon as it starts.
+ */
+
+changeThing(); // Call the changeWord function
+setInterval(changeThing, 3000); // Call it every 3 seconds
+
+function changeThing() {
+
+    // Define the word to create
+    var current_thing = things[count];
+    console.log(current_thing);
+
+    // Change the word in the HTML
+	headline.innerHTML = current_thing;
+
+    // Get the next word index in the array
+    count++;
+
+    // If we've reached the end of the word list, go back to the start
+    if (count == things.length) { count = 0; }
+}
+</script>
+							</div>
+							{%if content_block.image_right_footer %}
+							<div class="image"><img src="{{ Image(content_block.image_right_footer).src }}"></div>
+							{% endif %}
+						</div>
 					</div>
 				</section>
 				{% endif %}

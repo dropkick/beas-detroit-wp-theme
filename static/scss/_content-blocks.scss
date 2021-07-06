@@ -218,12 +218,30 @@
 		}
 
 		@media #{$mq-900-up} {
-			gap: 0;
+			gap: 3rem;
 			grid-template-columns: 1fr 1.2fr;
 			padding: 5em 5%;
 
 			.image {
 				padding: 0;
+
+				img {
+					margin: 0 auto;
+				}
+			}
+		}
+
+		.doit {
+			color: $color-cream;
+			@include font-size(36px);
+			padding: 0.5em 0;
+
+			@media #{$mq-900-up} {
+				font-size:3.4vw;
+			}
+		
+			@media #{$mq-1400-up} {
+				@include font-size(50px);
 			}
 		}
 	}
